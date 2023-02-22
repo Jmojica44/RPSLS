@@ -3,7 +3,7 @@ import random
 class People:
 
     def __init__(self):
-        self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
+        pass
 
     def display_gestures(self):
         self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
@@ -37,7 +37,7 @@ class Player_User(People):
         self.display_gestures()
         for i, gesture in enumerate(self.gestures):
                 print(f"{i+1}. {gesture.title()}")
-        possible_options = range(1, len(self.gestures))
+        possible_options = range(1, len(self.gestures) + 1)
     
         while True:
             user_choice = int(input("Please enter the number of the gesture you would like to use. > "))
@@ -46,6 +46,7 @@ class Player_User(People):
                 print("I'm sorry, that is not an option. Please select again.")
             else:
                 user_choice = self.gestures[user_choice - 1].title()
+                print()
                 print(f"User has chosen to play {user_choice}.")
                 return user_choice
 
@@ -56,7 +57,7 @@ class Player_Computer(People):
 
     def choose_gesture(self):
         print()
-        # self.display_gestures()
+        self.display_gestures()
         computer_choice = random.choice(self.gestures).title()
         print(f"Computer has chosen to play {computer_choice}.")
         print()
