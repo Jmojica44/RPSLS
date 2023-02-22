@@ -12,8 +12,7 @@ class People:
         print()
 
 class Player_User(People):
-    def __init__(self, player):
-        self.player = player 
+    def __init__(self):
         self.wins = 0
     
     def choose_gesture_user(self):
@@ -23,8 +22,8 @@ class Player_User(People):
         while True:
             user_choice = int(input("Please enter the number of the gesture you would like to use. > "))
             if user_choice in range(1, len(self.gestures) + 1):
-                user_choice = self.gestures[user_choice - 1]
-                print(f"{self.player} has chosen to play {user_choice.title()}.")
+                user_choice = self.gestures[user_choice - 1].title()
+                print(f"User has chosen to play {user_choice}.")
                 return user_choice
             print("I'm sorry, that is not an option. Please select again.")
 
@@ -37,13 +36,13 @@ class Player_Computer(People):
         print()
         print("Of the below options:")
         self.display_gestures()
-        computer_choice = random.choice(self.gestures)
-        print(f"Computer has chosen to play {computer_choice.title()}.")
+        computer_choice = random.choice(self.gestures).title()
+        print(f"Computer has chosen to play {computer_choice}.")
         print()
         return computer_choice
 
-player_1 = Player_User("Player 1")
-player_1.choose_gesture_user()
+# player_1 = Player_User("Player 1")
+# player_1.choose_gesture_user()
 
-computer = Player_Computer()
-computer.choose_gesture_computer()
+# computer = Player_Computer()
+# computer.choose_gesture_computer()

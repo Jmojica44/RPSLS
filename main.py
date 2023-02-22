@@ -1,5 +1,5 @@
 from game import Game
 
 game_1 = Game()
+game_1.run_game()
 
-game_1.compare("Rock", "Paper")
