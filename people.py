@@ -2,9 +2,19 @@ import random
 
 class People:
 
-    def __init__(self, player):
-        self.player = player
+    def __init__(self):
         self.wins = 0
+
+    def display_gestures(self):
+        self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
+        for i, gesture in enumerate(self.gestures):
+                print(f"{i+1}. {gesture.title()}")
+        print()
+
+class Player_User(People):
+    def __init__(self, player):
+        self.player = player 
+    
 
     def choose_gesture_user(self):
         print()
@@ -18,6 +28,10 @@ class People:
                 return user_choice
             print("I'm sorry, that is not an option. Please select again.")
 
+class Player_Computer(People):
+    def __init__(self):
+        self.player = "Computer"
+
     def choose_gesture_computer(self):
         print()
         print("Of the below options:")
@@ -27,14 +41,8 @@ class People:
         print()
         return computer_choice
 
-    def display_gestures(self):
-        self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
-        for i, gesture in enumerate(self.gestures):
-                print(f"{i+1}. {gesture.title()}")
-        print()
+player_1 = Player_User("Player 1")
+player_1.choose_gesture_user()
 
-# player_1 = People("Player 1")
-# player_1.choose_gesture()
-
-# computer = People("Computer")
+# computer = Player_Computer()
 # computer.choose_gesture_computer()
