@@ -26,6 +26,7 @@ class Player_User(People):
                 print(f"User has chosen to play {user_choice}.")
                 return user_choice
             print("I'm sorry, that is not an option. Please select again.")
+            print()
 
 class Player_Computer(People):
     def __init__(self):
@@ -34,7 +35,7 @@ class Player_Computer(People):
 
     def choose_gesture_computer(self):
         print()
-        print("Of the below options:")
+        # print("Of the below options:")
         self.display_gestures()
         computer_choice = random.choice(self.gestures).title()
         print(f"Computer has chosen to play {computer_choice}.")
