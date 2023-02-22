@@ -2,31 +2,27 @@ import people
 
 class Game():
     def __init__(self):
-        # game_mode = input("Would you like to play singleplayer or multiplayer? S or M ").lower()
-        # self.game_mode = game_mode
+        self.player_1 = people.Player_User()
+        self.player_2 = None
         self.player_1_wins = 0
         self.player_2_wins = 0
+        self.game_mode = self.choose_players()
 
     def choose_players(self):
-
         while True:
             print()
-            self.game_mode = input("Would you like to play singleplayer or multiplayer? S or M > ").lower()
-            # self.game_mode = game_mode
-            if self.game_mode == "m":
-                self.player_1 = people.Player_User()
+            game_mode = input("Would you like to play singleplayer or multiplayer? S or M > ").lower()
+            if game_mode == "m":
                 self.player_2 = people.Player_User()
-                return self.game_mode
-            elif self.game_mode == "s":
-                self.player_1 = people.Player_User()
+                return game_mode
+            elif game_mode == "s":
                 self.player_2 = people.Player_Computer()
-                return self.game_mode
+                return game_mode
             else:
                 print("Sorry, please type either 'S' or 'M'.")
             
 
     def run_game(self):
-        self.choose_players()
         self.introduction()
         self.rules()
         self.continue_game()
@@ -41,27 +37,23 @@ class Game():
         print("Rules:\n", "\n", "Rock crushes Scissors\n", "Scissors cuts Paper\n", "Paper covers Rock\n", "Rock crushes Lizard\n", "Lizard poisons Spock\n", "Spock smashes Scissors\n","Scissors decapitates Lizard\n", "Lizard eats Paper\n", "Paper disproves Spock\n", "Spock vaporizes Rock")
     
     def compare(self):
-
         while True:
-
             if self.game_mode == "s":
                 print()
-                print(f"""Current Score
+                print(f"""Current Score:
     Player 1: {self.player_1_wins} 
     Computer: {self.player_2_wins}""")
-                self.player_1_choice = self.player_1.choose_gesture_user()
-                self.player_2_choice = self.player_2.choose_gesture_computer()
+                self.player_1_choice = self.player_1.choose_gesture()
+                self.player_2_choice = self.player_2.choose_gesture()
                 break
-
             elif self.game_mode == "m": 
                 print()
-                print(f"""Current Score
+                print(f"""Current Score:
     Player 1: {self.player_1_wins} 
     Player 2: {self.player_2_wins}""")
-                self.player_1_choice = self.player_1.choose_gesture_user()
-                self.player_2_choice = self.player_2.choose_gesture_user()
+                self.player_1_choice = self.player_1.choose_gesture()
+                self.player_2_choice = self.player_2.choose_gesture()
                 break
-
 
         if self.player_1_choice == self.player_2_choice:
             print(f"It's a tie!")
@@ -98,7 +90,6 @@ class Game():
             else:
                 print("The computer wins this round!")
             self.player_2_wins += 1
-
     
     def continue_game(self):
         while self.player_1_wins < 2 and self.player_2_wins < 2:
