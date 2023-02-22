@@ -7,9 +7,6 @@ class People:
 
     def display_gestures(self):
         self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
-        for i, gesture in enumerate(self.gestures):
-                print(f"{i+1}. {gesture.title()}")
-        print()
     
     def choose_gesture(self):
         """
@@ -38,6 +35,8 @@ class Player_User(People):
         print()
         print("Below is a list of gestures you may choose from.")
         self.display_gestures()
+        for i, gesture in enumerate(self.gestures):
+                print(f"{i+1}. {gesture.title()}")
         possible_options = range(1, len(self.gestures))
     
         while True:
