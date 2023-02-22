@@ -18,10 +18,10 @@ class Game():
     def compare(self, player_1_choice, player_2_choice):
         self.player_1_choice = player_1_choice
         self.player_2_choice = player_2_choice
-        self.player_1_wins = player_1_wins
-        self.player_2_wins = player_2_wins
         player_1_wins = 0
         player_2_wins = 0
+        self.player_1_wins = player_1_wins
+        self.player_2_wins = player_2_wins
         if player_1_choice == player_2_choice:
             print(f"It's a tie!")
             player_1_wins += 1
