@@ -3,7 +3,7 @@ import random
 class People:
 
     def __init__(self):
-        pass
+        self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
 
     def display_gestures(self):
         self.gestures = ["rock", "paper", "scissors", "Lizard", "Spock"]
@@ -57,7 +57,7 @@ class Player_Computer(People):
 
     def choose_gesture(self):
         print()
-        self.display_gestures()
+        # self.display_gestures()
         computer_choice = random.choice(self.gestures).title()
         print(f"Computer has chosen to play {computer_choice}.")
         print()
